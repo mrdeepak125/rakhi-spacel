@@ -32,9 +32,9 @@
 }
 
 .background {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
+    position: sticky;
+    width: 100%;
+    height: 150vh;
     top: 0;
     left: 0;
     background: #000000;
@@ -514,10 +514,10 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-content: center;
-    justify-content: center;
+    /* align-content: center; */
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin: 50px;
 }
 
@@ -534,7 +534,7 @@
 
 /* From Uiverse.io by Navarog21 */ 
 button {
-    width: 10em;
+    width: 32em;
     position: relative;
     height: 3.5em;
     border: 3px ridge #149CEA;
@@ -584,4 +584,8 @@ button {
     color: white;
     font-family: "kalam";
     font-size: 30px;
+}
+
+a {
+    color: red;
 }

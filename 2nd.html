@@ -1,20 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="2nd.css">
+    <title>Special Raksha Bandhan</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Nobile:400italic,700italic);
+        @import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        body {
+            background: #e5e5e5;
+            background-image: url("https://i.postimg.cc/Hxy4Cm01/Raksha-Bandhan.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 50px;
+            margin: 0;
+            height: auto;
+        }
+
+        #rakhiVideo {
+            /* padding: 5px; */
+            width: 100%;
+            margin-top: 25px;
+            height: 100vh;
+        }
+
+        #card {
+            position: relative;
+            width: 100%;
+            max-width: 860px;
+            height: 480px;
+            margin: 0 auto;
+            perspective: 5000px;
+            display: none;
+        }
+
+        #card-front,
+        #card-inside {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 1s linear;
+        }
+
+        #card-front {
+    background-color: #ed5552;
+    /* background-image: url(https://www.igp.com/blog/wp-content/uploads/2024/08/Rakhi-Wishes-in-Hindi.jpg);
+    background-size: 500px;
+    background-repeat: no-repeat; */
+    z-index: 2;
+}
+
+        #card-inside {
+            background: #ffefef;
+            transform: rotateY(180deg);
+        }
+
+        #card.open-fully #card-front {
+            transform: rotateY(-180deg);
+        }
+
+        #card.open-half #card-front {
+            transform: rotateY(-90deg);
+        }
+
+        #card.open-fully #card-inside {
+            transform: rotateY(0deg);
+        }
+
+        #card.open-half #card-inside {
+            transform: rotateY(90deg);
+        }
+
+        #card-front .wrap,
+        #card-inside .wrap {
+            padding: 1.5em 2.5em;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #card-front h1 {
+            text-align: center;
+            font-family: "Nobile", sans-serif;
+            font-style: italic;
+            font-size: 40px;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15),
+                1px 1px 0 rgba(255, 200, 200, 255),
+                2px 2px 0 rgba(255, 150, 150, 255),
+                3px 3px 0 rgba(255, 125, 125, 255);
+            color: #fff;
+        }
+
+        #card-inside {
+            font-size: 1.1em;
+            line-height: 1.4;
+            font-family: "Nobile";
+            color: #331711;
+            font-style: italic;
+        }
+
+        p {
+            margin-top: 1em;
+        }
+
+        p:first-child {
+            margin-top: 0;
+        }
+
+        p.signed {
+            margin-top: 1.5em;
+            text-align: center;
+            font-family: "Dancing Script", sans-serif;
+            font-size: 1.5em;
+        }
+
+        .wrap p.bb {
+            color: rgb(255, 255, 255);
+            margin-top: 150px;
+            margin-left: 100px;
+            /* text-align: end; */
+        }
+
+        #card-front button,
+        #card-inside button {
+            position: absolute;
+            bottom: 1em;
+            background: #f44;
+            color: #fff;
+            font-family: "Nobile", sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 1.5em;
+            padding: 0.5em;
+            border: none;
+            cursor: pointer;
+            left: 1rem;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
+        }
+
+        #card-front button:hover,
+        #card-inside button:hover {
+            background: #f22;
+        }
+
+        #card-inside .wrap {
+            display: none;
+        }
+
+        #card.open-fully #card-inside .wrap {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            #card {
+                width: 90%;
+                height: auto;
+                margin: 20px auto;
+            }
+
+            #card-front,
+            #card-inside {
+                width: 100%;
+                height: auto;
+                box-shadow: none;
+                position: static;
+                transform: none;
+                background-image: none;
+            }
+
+            #card-front button {
+                bottom: 0.5em;
+                right: 0.5em;
+                font-size: 1.2em;
+            }
+
+            #card h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <main>
-        <div class="continer">
-            <img src="./img/_1c1a3895-707b-44c8-b254-c65bfb73c1eb.jpeg" alt="" srcset=""> 
-            <div class="rakhi">
-            
+
+    <div id="container">
+        <video id="rakhiVideo" controls autoplay>
+            <source src="img/Untitled video - Made with Clipchamp.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div id="card">
+            <div id="card-front">
+                <div class="wrap">
+                    <h1>Happy Raksha Bandhan!</h1>
+                    <h1>Sister/ Brother</h1>
+                    <p class="bb">Open the Gift</p>
+                    <button id="open">&gt;</button>
+                </div>
+            </div>
+            <div id="card-inside">
+                <div class="wrap">
+                    <p>Dear Sister,</p>
+                    <p>On this special occasion of Raksha Bandhan, I want to express how much you mean to me. You have
+                        always been a source of joy, inspiration, and strength in my life. Your unwavering support and
+                        encouragement have guided me through every challenge, and I am deeply grateful for that.</p>
+                    <p>May our bond continue to grow stronger with each passing year, and may we always share happiness
+                        and love. Wishing you a wonderful Raksha Bandhan filled with joy and cherished moments.</p>
+                    <p>Wishing you a very Raksha Bandhan ❤</p>
+                    <center>From</center>
+                    <p class="signed">Brother</p>
+                    <button id="close">&lt;</button>
+                </div>
             </div>
         </div>
-       
-    </main>
+    </div>
+
+    <script>
+        document.getElementById('rakhiVideo').addEventListener('ended', function () {
+            // Hide the video and show the card
+            this.style.display = 'none';
+            document.getElementById('card').style.display = 'block';
+        });
+
+        document.getElementById('open').addEventListener('click', function () {
+            document.getElementById('card').classList.add('open-fully');
+            document.getElementById('card').classList.remove('open-half');
+        });
+
+        document.getElementById('close').addEventListener('click', function () {
+            document.getElementById('card').classList.add('close-half');
+            setTimeout(function () {
+                // Redirect to index.html after closing the card
+                window.location.href = 'index.html';
+            }, 1000);
+        });
+    </script>
+
 </body>
+
 </html>
