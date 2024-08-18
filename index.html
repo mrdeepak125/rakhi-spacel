@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhai Bhen Form</title>
+    <title>Happy Rakhi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,7 +38,8 @@
             margin-bottom: 15px;
         }
 
-        select, input[type="text"] {
+        select,
+        input[type="text"] {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
@@ -85,6 +87,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -100,16 +103,16 @@
 
             <div class="form-group">
                 <select id="firstDropdown" name="firstDropdown" required>
-                    <option value="प्रिय Bhai">प्रिय Bhai</option>
-                    <option value="प्यारी Bhen">प्यारी Bhen</option>
+                    <option value="Dear Bhai">Dear Bhai</option>
+                    <option value="Dear Bahan">Dear Bahan</option>
                 </select>
                 <input type="text" id="firstInput" name="firstInput" placeholder="Enter Name" required>
             </div>
 
             <div class="form-group">
                 <select id="secondDropdown" name="secondDropdown" required>
-                    <option value="तुम्हारा प्रिय Bhai">तुम्हारा प्रिय Bhai</option>
-                    <option value="तुम्हारी प्यारी Bhen">तुम्हारी प्यारी Bhen</option>
+                    <option value="Your loving Bhai">Your loving Bhai</option>
+                    <option value="Your loving bahan">Your loving Bahan</option>
                 </select>
                 <input type="text" id="secondInput" name="secondInput" placeholder="Enter Name" required>
             </div>
@@ -130,9 +133,33 @@
             const secondDropdown = document.getElementById('secondDropdown').value;
             const secondInput = document.getElementById('secondInput').value;
 
+            //     if (firstInput && secondInput) {
+            //     const link = `https://mrdeepak125.github.io/rakhi-spacel/Home.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}&language=${encodeURIComponent(language)}`;
+
+            //     // Copy the link to the clipboard
+            //     navigator.clipboard.writeText(link).then(() => {
+            //         // Redirect to the generated link
+            //         window.location.href = link;
+            //     }).catch(err => {
+            //         console.error('Failed to copy the link to clipboard: ', err);
+            //     });
+            // } else {
+            //     alert('Please fill out all fields.');
+            // }
+
             if (firstInput && secondInput) {
-                const link = `./Home.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}&language=${encodeURIComponent(language)}`;
-                document.getElementById('result').innerHTML = `<a href="${link}" target="_blank">Go to Home</a>`;
+                let link;
+                if (language === 'english') {
+                    link = `https://mrdeepak125.github.io/rakhi-spacel/Home-translate.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}`;
+                } else {
+                    link = `.https://mrdeepak125.github.io/rakhi-spacel/Home.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}`;
+                    navigator.clipboard.writeText(link).then(() => {
+                       link;
+                    }).catch(err => {
+                        console.error('Failed to copy the link to clipboard: ', err);
+                    });
+                }
+                document.getElementById('result').innerHTML = `<a href="${link}" target="_blank">Copy And View</a>`;
             } else {
                 alert('Please fill out all fields.');
             }
@@ -140,4 +167,5 @@
     </script>
 
 </body>
+
 </html>
