@@ -128,7 +128,7 @@
             const secondInput = document.getElementById('secondInput').value;
 
             if (firstInput && secondInput) {
-                const link = `./home.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}&language=${encodeURIComponent(language)}`;
+                const link = `./Home.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}&language=${encodeURIComponent(language)}`;
                 document.getElementById('result').innerHTML = `<a href="${link}" target="_blank">Go to Home</a>`;
             } else {
                 alert('Please fill out all fields.');
