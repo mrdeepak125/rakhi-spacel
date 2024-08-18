@@ -148,21 +148,26 @@
             // }
 
             if (firstInput && secondInput) {
-                let link;
-                if (language === 'english') {
-                    link = `https://mrdeepak125.github.io/rakhi-spacel/Home-translate.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}`;
-                } else {
-                    link = `./Home.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}`;
-                    navigator.clipboard.writeText(link).then(() => {
-                       link;
-                    }).catch(err => {
-                        console.error('Failed to copy the link to clipboard: ', err);
-                    });
-                }
-                document.getElementById('result').innerHTML = `<a href="${link}" target="_blank">Copy And View</a>`;
-            } else {
-                alert('Please fill out all fields.');
-            }
+    let link;
+    if (language === 'english') {
+        link = `https://mrdeepak125.github.io/rakhi-spacel/Home-translate.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}`;
+    } else {
+        link = `https://mrdeepak125.github.io/rakhi-spacel/Home.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}`;
+    }
+
+    // Copy the link to the clipboard
+    navigator.clipboard.writeText(link).then(() => {
+        console.log('Link copied to clipboard:', link);
+
+        // Display the clickable link
+        document.getElementById('result').innerHTML = `<a href="${link}" target="_blank">Copy And View</a>`;
+    }).catch(err => {
+        console.error('Failed to copy the link to clipboard: ', err);
+    });
+} else {
+    alert('Please fill out all fields.');
+}
+
         }
     </script>
 
