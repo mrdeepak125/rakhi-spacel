@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhai Bhen Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Bhai Bhen Form</h2>
+
+        <form id="bhaiBhenForm">
+            <div class="form-group">
+                <select id="language" name="language" required>
+                    <option value="english">English</option>
+                    <option value="hindi">Hindi</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <select id="firstDropdown" name="firstDropdown" required>
+                    <option value="प्रिय Bhai">प्रिय Bhai</option>
+                    <option value="प्यारी Bhen">प्यारी Bhen</option>
+                </select>
+                <input type="text" id="firstInput" name="firstInput" placeholder="Enter Name" required>
+            </div>
+
+            <div class="form-group">
+                <select id="secondDropdown" name="secondDropdown" required>
+                    <option value="तुम्हारा प्रिय Bhai">तुम्हारा प्रिय Bhai</option>
+                    <option value="तुम्हारी प्यारी Bhen">तुम्हारी प्यारी Bhen</option>
+                </select>
+                <input type="text" id="secondInput" name="secondInput" placeholder="Enter Name" required>
+            </div>
+
+            <button type="button" onclick="generateLink()">Generate Link</button>
+        </form>
+
+        <div id="result">
+            <!-- The generated link will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function generateLink() {
+            const language = document.getElementById('language').value;
+            const firstDropdown = document.getElementById('firstDropdown').value;
+            const firstInput = document.getElementById('firstInput').value;
+            const secondDropdown = document.getElementById('secondDropdown').value;
+            const secondInput = document.getElementById('secondInput').value;
+
+            if (firstInput && secondInput) {
+                const link = `./home.html?firstDropdown=${encodeURIComponent(firstDropdown)}&firstInput=${encodeURIComponent(firstInput)}&secondDropdown=${encodeURIComponent(secondDropdown)}&secondInput=${encodeURIComponent(secondInput)}&language=${encodeURIComponent(language)}`;
+                document.getElementById('result').innerHTML = `<a href="${link}" target="_blank">Go to Home</a>`;
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+    </script>
+
+</body>
+</html>

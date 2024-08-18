@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakhi Spacial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="background">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="contaier">
+                <div id="personalMessage" class="personal-message">
+                    <!-- The personalized message will be inserted here -->
+                </div>
+                <div class="sorry">
+                    <img src="https://media1.tenor.com/m/zWZWiEPy6B8AAAAC/im-sorry-i-texted-you-too-much-its-only-because-i-really-like-you-and-care-for-you.gif"
+                        alt="">
+                </div>
+                <h1 id="mainMessage">माफ़ करना बहन इस रक्षा बंधन में नहीं आ पाहू</h1>
+                <h2>पर तेरे भाई तो राखी बांधने के लिए निचे क्लिक करें</h2>
+                <button>
+                   <a href="./2nd.html"> Hover me</a>
+                </button>
+            </div>
+        </div>
+    </main>
+ <script>
+        // Function to get query parameters from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the values from the URL
+        const firstDropdown = getQueryParam('firstDropdown');
+        const firstInput = getQueryParam('firstInput');
+        const secondDropdown = getQueryParam('secondDropdown');
+        const secondInput = getQueryParam('secondInput');
+
+        // Insert the personalized message
+        const personalMessage = document.getElementById('personalMessage');
+        const mainMessage = document.getElementById('mainMessage');
+
+        if (firstDropdown && firstInput && secondDropdown && secondInput) {
+            // Update the personal message
+            personalMessage.innerHTML = `${firstDropdown} ${firstInput}, <br> ${secondDropdown} ${secondInput}`;
+
+            // Update the main message with the correct form of बहन or भाई
+            if (firstDropdown === "प्रिय Bhai") {
+                mainMessage.innerHTML = `माफ़ करना ${firstDropdown.split(' ')[1]} इस रक्षा बंधन में नहीं आ पाहू गी`;
+            } else {
+                mainMessage.innerHTML = `माफ़ करना ${firstDropdown.split(' ')[1]} इस रक्षा बंधन में नहीं आ पाहू गा`;
+            }
+        }
+
+        function changeLanguage(language) {
+            updateContent(language);
+        }
+    </script>
+</body>
+
+</html>
